@@ -1,0 +1,22 @@
+.notes {
+  background-color: white;
+  padding: 48px;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.clearfix h1 {
+  float: left;
+}
+
+.clearfix button {
+  float: right;
+}
+
+@media (max-width: 600px) {
+  .clearfix button {
+    float: none;
+  }
+}

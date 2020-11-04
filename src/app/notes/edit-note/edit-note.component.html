@@ -1,0 +1,19 @@
+<nz-content>
+    <nz-modal [(nzVisible)]="isModalVisible" nzTitle="Create New Note" (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleOk()">
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="handleOk()">
+            <nz-form-item>
+                <nz-form-label [nzSpan]="4">Title</nz-form-label>
+                <nz-form-control [nzSpan]="14" nzErrorTip="Please input your note title!">
+                    <input nz-input formControlName="title" placeholder="input title" />
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="4">Content</nz-form-label>
+                <nz-form-control [nzSpan]="14" nzErrorTip="Please input your note content!">
+                    <textarea nz-input formControlName="text" placeholder="input content"></textarea>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+    </nz-modal>
+</nz-content>

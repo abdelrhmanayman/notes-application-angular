@@ -1,0 +1,18 @@
+<nz-list [nzDataSource]="data" [nzItemLayout]="'vertical'" [nzRenderItem]="item">
+    <ng-template #item let-item>
+        <nz-list-item [nzContent]="item.text" [nzActions]="[editAction, deleteAction]" [nzExtra]="extra">
+            <ng-template #editAction><i (click)="editNote(item)" nz-icon nzType="edit" style="margin-right: 8px;"></i>
+                Edit
+            </ng-template>
+            <ng-template #deleteAction><i (click)="showDeleteConfirm(item)" nz-icon nzType="delete"
+                    style="margin-right: 8px;"></i> Delete
+            </ng-template>
+            <nz-list-item-meta [nzTitle]="nzTitle">
+                <ng-template #nzTitle><a href="{{ item.href }}">{{ item.title }}</a></ng-template>
+            </nz-list-item-meta>
+            <ng-template #extra>
+                <img width="150" alt="logo" src="http://localhost:7000/api/images/{{item.image}}" />
+            </ng-template>
+        </nz-list-item>
+    </ng-template>
+</nz-list>

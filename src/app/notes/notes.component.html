@@ -1,0 +1,23 @@
+<div class="notes">
+    <div class="clearfix">
+        <h1 style="font-size: 30px; font-weight: bold;">It's a good day to write a note!</h1>
+        <nz-row nzType="flex" nzJustify="end" nzGutter="10">
+            <nz-col nzSpan="12">
+                <button ngSize="large" nz-button nzType="primary" (click)="toggleAddNoteModal()">
+                    Create New Note
+                </button>
+            </nz-col>
+            <nz-col nzSpan="4">
+                <nz-input-group [nzSuffix]="suffixIconSearch">
+                    <input (input)="searchForANote($event)" type="text" nz-input placeholder="search for a note" />
+                </nz-input-group>
+                <ng-template #suffixIconSearch>
+                    <i nz-icon nzType="search"></i>
+                </ng-template>
+            </nz-col>
+        </nz-row>
+    </div>
+    <app-notes-list style="padding: 40px"></app-notes-list>
+    <app-add-note></app-add-note>
+    <app-edit-note></app-edit-note>
+</div>

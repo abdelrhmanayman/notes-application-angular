@@ -1,0 +1,32 @@
+<nz-content>
+    <nz-modal [(nzVisible)]="isModalVisible" nzTitle="Create New Note" (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleOk()">
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="handleOk()">
+            <nz-form-item>
+                <nz-form-label [nzSpan]="4">Title</nz-form-label>
+                <nz-form-control [nzSpan]="14" nzErrorTip="Please input your note title!">
+                    <input nz-input formControlName="title" placeholder="input title" />
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="4">Content</nz-form-label>
+                <nz-form-control [nzSpan]="14" nzErrorTip="Please input your note content!">
+                    <textarea nz-input formControlName="text" placeholder="input content"></textarea>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+        <nz-row nzType="flex" nzJustify="center">
+            <nz-col>
+                <nz-upload class="avatar-uploader" nzAction="http://localhost:7000/api/images/upload" nzName="avatar"
+                    nzListType="picture-card" [nzShowUploadList]="false" [nzBeforeUpload]="beforeUpload"
+                    (nzChange)="handleChange($event)">
+                    <ng-container *ngIf="!avatarUrl">
+                        <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+                        <div class="ant-upload-text">Upload</div>
+                    </ng-container>
+                    <img width="150" *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
+                </nz-upload>
+            </nz-col>
+        </nz-row>
+    </nz-modal>
+</nz-content>

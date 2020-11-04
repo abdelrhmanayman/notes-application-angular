@@ -1,0 +1,30 @@
+<!-- <nz-layout class="app-layout"> -->
+<nz-layout class="app-layout">
+  <nz-header>
+    <nz-row>
+      <nz-col nzSpan="22">
+        <div class="sidebar-logo">
+          <a routerLink="/" target="_blank">
+            <img src="https://image.pngaaa.com/122/415122-small.png" alt="logo" />
+            <h1>Notology</h1>
+          </a>
+        </div>
+      </nz-col>
+      <nz-col nzSpan="2">
+        <a *ngIf="logoutShouldAppear()" (click)="logout()" style="color: azure;">Logout</a>
+      </nz-col>
+    </nz-row>
+  </nz-header>
+  <nz-content>
+    <div class="inner-content">
+      <router-outlet></router-outlet>
+    </div>
+  </nz-content>
+</nz-layout>
+<nz-footer>
+  <div nz-row>
+    <div style="text-align: center" nz-col nzSpan="12" nzOffset="6">
+      <h4>Modeso &copy; Copyright 2020</h4>
+    </div>
+  </div>
+</nz-footer>
